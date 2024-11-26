@@ -15,8 +15,6 @@ public interface UserService {
 
         Optional<Users> getUser(UUID id);
 
-        void editUser(UUID userId, Users updatedUser);
-
         Users deleteUser(UUID userId);
         
         boolean checkPassword(String password, String username);
