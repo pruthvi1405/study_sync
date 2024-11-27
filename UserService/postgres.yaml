@@ -1,0 +1,17 @@
+  version: "3.1"
+  services:
+    db:
+      image: postgres
+      container_name: db
+      environment:
+        - POSTGRES_USER=pruthvi1405
+        - POSTGRES_PASSWORD=Poojan123
+        - POSTGRES_DB=Users
+        - PGDATA=/var/lib/postgresql/data/pgdata
+      ports:
+        - 5433:5432
+      volumes:
+        - pgdata:/var/lib/postgresql/data
+      restart: always
+  volumes:
+    pgdata:

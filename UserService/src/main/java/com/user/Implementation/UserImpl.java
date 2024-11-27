@@ -34,11 +34,11 @@ public class UserImpl implements UserService {
         return userRepo.findById(id);
     }
 
-    @Override
-    public void editUser(UUID userId, Users updatedUser) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editUser'");
-    }
+    // @Override
+    // public void editUser(UUID userId, Users updatedUser) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'editUser'");
+    // }
 
     @Override
 public Users deleteUser(UUID userId) {
