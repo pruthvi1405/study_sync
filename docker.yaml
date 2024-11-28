@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  app1:
+    build: ./QuizService  
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db1
+      - app2
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db1:5432/Quiz
+      - SPRING_DATASOURCE_USERNAME=pruthvi1405
+      - SPRING_DATASOURCE_PASSWORD=Poojan123
+
+  db1:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=pruthvi1405
+      - POSTGRES_PASSWORD=Poojan123
+      - POSTGRES_DB=Quiz
+
+  app2:
+    build: ./UserService  
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db2
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db2:5432/Users
+      - SPRING_DATASOURCE_USERNAME=pruthvi1405
+      - SPRING_DATASOURCE_PASSWORD=Poojan123
+
+  db2:
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=pruthvi1405
+      - POSTGRES_PASSWORD=Poojan123
+      - POSTGRES_DB=Users
